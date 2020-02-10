@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+    <script src="https://cdn.jsdelivr.net/gh/fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js"></script>
+    <title>Bookstore</title>
+</head>
+<body>
+   <div class="container" id="my-vue">
+       <div class="row">
+           <div class="header-left">
+                <img class="logo" src="images/05.jpg" alt="">
+                <h1>Ubiqum<br>Bookstore</h1>
+           </div>
+           <div class="header-right">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search" name="search">
+                <div class="input-group-btn">
+                  <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                </div>
+              </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="hr">
+               <hr>
+           </div>
+       </div>
+       <div v-for ="row in bookInfo" class="row">
+           <div class="cards-in-row">
+            <div v-for ="book in row" class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                     <img v-bind:src="book.cover" alt="">
+                  </div>
+                  <div class="flip-card-back">
+                    <h3>{{book.title}}</h3> 
+                    <p>{{book.description}}</p> 
+                    <a data-fancybox="gallery" v-bind:href="book.detail">
+                        <button>more info</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+           </div>
+       </div>
+   </div> 
+   <script src="main.js"></script>
+</body>
+</html>
